@@ -15,5 +15,3 @@ print(*result)
 #             result[i] = arr[j]
 #             break
 # print(*result)
-    
-
