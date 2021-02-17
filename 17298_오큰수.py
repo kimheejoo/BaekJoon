@@ -9,6 +9,7 @@ for i in range(n):
         result[stack.pop()] = arr[i]
     stack.append(i)
 print(*result)
+
 # for i in range(n-1):
 #     for j in range(i+1,n):
 #         if arr[i] < arr[j]:
