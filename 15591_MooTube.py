@@ -11,7 +11,7 @@ def search(k, node):
     for s in stack: 
         visited[s[0]] = True
         if s[1] >= k:
-            result +=1
+            result += 1
 
     # 인접해있는 노드말고
     while stack:
@@ -23,7 +23,7 @@ def search(k, node):
                 min_d = min(d, i[1])
                 stack.append([i[0], min(d, i[1])])
                 if min_d >= k:
-                    result+=1
+                    result += 1
     return result
 
 n, q = map(int, sys.stdin.readline().split())
