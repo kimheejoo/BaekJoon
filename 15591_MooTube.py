@@ -16,27 +16,23 @@ def search(k, node):
     # 인접해있는 노드말고
     while stack:
         n, d = stack.pop()
-        min_d = d
         for i in graph[n]:
             if not visited[i[0]]:
                 visited[i[0]] = True
                 min_d = min(d, i[1])
-                stack.append([i[0], min(d, i[1])])
+                stack.append([i[0], min_d])
                 if min_d >= k:
                     result += 1
     return result
 
 n, q = map(int, sys.stdin.readline().split())
-graph = dict()
-for i in range(n-1):
-    tmp = list(map(int, sys.stdin.readline().split()))
-    if not graph.get(tmp[0]):
-        graph[tmp[0]] = list()
-    if not graph.get(tmp[1]):
-        graph[tmp[1]] = list()
-    graph[tmp[0]].append([tmp[1], tmp[2]])
-    graph[tmp[1]].append([tmp[0], tmp[2]])
+graph = {i+1: list() for i in range(n)}
 
-for i in range(q):
-    tmp = list(map(int, sys.stdin.readline().split()))
-    print(search(tmp[0],tmp[1]))
+for i in range(n-1):
+    s, e, distance = map(int, sys.stdin.readline().split())
+    graph[s].append([e, distance])
+    graph[e].append([s, distance])
+
+for _ in range(q):
+    k, node = map(int, sys.stdin.readline().split())
+    print(search(k, node))
