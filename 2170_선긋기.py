@@ -11,6 +11,7 @@ line.sort(key=lambda x:x[0])
 s = line[0][0]
 e = line[0][1]
 
+# 첫 선의 길이 초기화
 result = e - s
 
 for i in range(1, N):
