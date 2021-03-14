@@ -21,14 +21,14 @@ def BFS(i, j):
 
 while True:
     w, h = map(int, sys.stdin.readline().split())
-    if w * h == 0:
+    if w * h == 0: 
         break
     arr = [list(map(int, sys.stdin.readline().split())) for _ in range(h)]
     cnt = 0
     for i in range(h):
         for j in range(w):
             if arr[i][j] == 1:
-                cnt += 1
                 arr[i][j] = 0
+                cnt += 1
                 BFS(i,j)
     print(cnt)
